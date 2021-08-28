@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640px, user-scalable=no">
+    <title>学校通行证</title>
+    <link rel="stylesheet" href="style_1.css">
+    
+</head>
+<body>
+        <div class="back">
+            <div class="logo">
+    
+            </div>
+            <div class="basic">
+                <div class="img">
+                    <img id="preview" />
+                    <br />
+                    <input type="file" name="file" onchange="imgPreview(this)" >
+                </div>
+                <div class="info">
+                    <div class="info_1">
+                            姓名：<input type="text"  placeholder="姓名" >
+                    </div>
+                    <div class="info_2">
+                            学院：<input type="text"  style="width: 60px;" placeholder="班级" >
+                    </div>
+                    <div class="info_3">
+                            学号：<input type="text"  style="width: 60px;" placeholder="学号" >
+                    </div>
+                    <div class="time_1">
+                        出发时间：<span id="time_leave"></span>
+                    </div>
+                    <div class="time_2">
+                        返校时间：<span id="time_back"></span>
+                    </div>
+                    <div class="clock">
+                            <span id="t_1">现在时刻：</span>
+                            <span id="now"></span>
+                            
+                            <p id="time">
+                                12:12:12 AM
+                            </p>
+
+                    </div>
+                </div>
+                <div class="button">
+                   <a href="about.html">我要回校</a>
+                </div>
+            </div>
+        </div>
+        
+        <script src="index.js" type="text/javascript"></script>
+        <script>
+            var myDate = new Date();
+            var year = myDate.getFullYear();
+            function getM(){
+                var month = myDate.getMonth()
+                if(month<10)
+                {
+                    return("0"+month)
+                }
+                else{
+                    return(month)
+                }
+            }
+            function getD(){
+                var date = myDate.getDate()
+                if(date<10)
+                {
+                    return("0"+date)
+                }
+                else{
+                    return(date)
+                }
+            }
+            function getMin(){
+                var min = myDate.getMinutes()
+                if(min<10)
+                {
+                    return("0"+min)
+                }
+                else{
+                    return(min)
+                }
+            }
+            function getH(){
+                var hours = myDate.getHours();
+                if(hours>12)
+                {
+                    hours = hours - 12;
+                    return("0"+hours);
+                }
+                if(hours<10)
+                {
+                    return("0"+hours);
+                }
+                else{
+                    return(hours)
+                }
+            }
+            var time_leave = document.getElementById("time_leave");
+            time_leave.innerHTML = year+"-"+getM()+"-"+(getD())+" "+getH()+":"+getMin()
+            var time_back = document.getElementById("time_back");
+            time_back.innerHTML = year+"-"+getM()+"-"+(getD()+1)+" "+getH()+":"+getMin()
+
+            //获取now现在时刻
+            var Now = document.getElementById("now");
+            Now.innerHTML = year+"-"+getM()+"-"+(getD())+" "
+</script>
+</body>
+</html>
