@@ -96,13 +96,13 @@
                 }
             }
             var time_leave = document.getElementById("time_leave");
-            time_leave.innerHTML = year+"-"+getM()+"-"+(getD())+" "+getH()+":"+getMin()
+            time_leave.innerHTML = year+"-"+(getM()+1)+"-"+(getD())+" "+getH()+":"+getMin()
             var time_back = document.getElementById("time_back");
-            time_back.innerHTML = year+"-"+getM()+"-"+(getD()+1)+" "+getH()+":"+getMin()
+            time_back.innerHTML = year+"-"+(getM()+1)+"-"+(getD()+1)+" "+getH()+":"+getMin()
 
             //获取now现在时刻
             var Now = document.getElementById("now");
-            Now.innerHTML = year+"-"+getM()+"-"+(getD())+" "
+            Now.innerHTML = year+"-"+(getM()+1)+"-"+(getD())+" "
             //为btn绑定单机响应函数
             //点击实现参数的传递
 
