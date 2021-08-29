@@ -67,7 +67,7 @@
      var myDate = new Date();
             var year = myDate.getFullYear();
             function getM(){
-                var month = myDate.getMonth()
+                var month = myDate.getMonth()+1;
                 if(month<10)
                 {
                     return("0"+month)
@@ -115,7 +115,7 @@
 
             //获取now现在时刻
             var Now = document.getElementById("now");
-            Now.innerHTML = year+"-"+(getM()+1)+"-"+(getD())+" "
+            Now.innerHTML = year+"-"+getM()+"-"+(getD())+" "
             //获取姓名、学院、班级
             var Arr = get()
             var inputValue = []
