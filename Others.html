@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640px, user-scalable=no">
+    <title>学校通行证</title>
+    <link rel="stylesheet" href="style_green.css">
+    
+</head>
+<body>
+        <div class="back">
+            <div class="logo">
+    
+            </div>
+            
+                <div class="basic">
+                    <div class="img">
+                        <img id="preview" />
+                        <br />
+                        <input type="file" name="file" onchange="imgPreview(this)" >
+                    </div>
+                    <div class="info">
+                       <li>姓名：<input id="input_1" type="text" name="username" style="width: 260px;"  value="" placeholder="姓名" ></li>
+                       <li>学院：<input id="input_2" type="text" name="username" style="width: 260px;"  value="" placeholder="学院" ></li>
+                       <li>学号：<input id="input_3" type="text" name="username" style="width: 260px;"  value="" placeholder="学号" ></li>
+                        <li>
+                            出发时间：<span id="time_leave"></span>
+                        </li>
+                        <li>
+                                返校时间：<span id="time_back"></span>
+                        </li>
+                        <li>
+                            <div class="clock">
+                            <span id="t_1">现在时刻：</span>
+                            <span id="now"></span>
+                            
+                            <p id="time">
+                                12:12:12 AM
+                            </p>
+
+                    </div></li>
+                    </div>
+                    <button id="btn" class="button"><span>我要出校</span></button>
+                </div>
+            
+        </div>
+        <script src="pass.js"></script>
+        <script src="index.js" type="text/javascript"></script>
+        <script>
+            //弹窗样式
+            
+        </script>
+        <script>
+            var myDate = new Date();
+            var year = myDate.getFullYear();
+            function getM(){
+                var month = myDate.getMonth()+1
+                if(month<10)
+                {
+                    return("0"+month)
+                }
+                else{
+                    return(month)
+                }
+            }
+            function getD(){
+                var date = myDate.getDate()
+                if(date<10)
+                {
+                    return("0"+date)
+                }
+                else{
+                    return(date)
+                }
+            }
+            function getMin(){
+                var min = myDate.getMinutes()
+                if(min<10)
+                {
+                    return("0"+min)
+                }
+                else{
+                    return(min)
+                }
+            }
+            function getH(){
+                var hours = myDate.getHours();
+                if(hours>12)
+                {
+                    hours = hours - 12;
+                    return("0"+hours);
+                }
+                if(hours<10)
+                {
+                    return("0"+hours);
+                }
+                else{
+                    return(hours)
+                }
+            }
+            var time_leave = document.getElementById("time_leave");
+            time_leave.innerHTML = year+"-"+getM()+"-"+(getD())+" "+getH()+":"+getMin()
+            //返校时间：
+            //判断出发大小月,大月月末为31，小月月末为30
+            if(getM()==1||getM()==3||getM()==5||getM()==7||getM()==8||getM()==10||getM()==12)
+            {
+                //判断出发时间的日期是否为月末，若是；则返校月+1；日期为01
+                if(getD()==31)
+                {
+                    //判断返校月份是否为单数，若为单数补0
+                    if(myDate.getMonth()+2<10)
+                    {
+                        var time_back = document.getElementById("time_back");
+                        time_back.innerHTML = year+"-"+"0"+(myDate.getMonth()+2)+"-"+"01"+" "+getH()+":"+getMin()
+                    }
+                    //双数则正常输出
+                    else
+                    {
+                        var time_back = document.getElementById("time_back");
+                        time_back.innerHTML = year+"-"+(myDate.getMonth()+2)+"-"+"01"+" "+getH()+":"+getMin() 
+                    }
+                    
+                }
+                //不是月末则返校月不增加，进入日期判断
+                else
+                {
+                    //判断日期是否为单数 若为单数则补0，反之则直接输出
+                    if(myDate.getDate()+1<10)
+                    {
+                        var time_back = document.getElementById("time_back");
+                        time_back.innerHTML = year+"-"+getM()+"-"+"0"+(myDate.getDate()+1)+" "+getH()+":"+getMin()
+                    }
+                    //双数直接输出
+                    else
+                    {
+                        var time_back = document.getElementById("time_back");
+                        time_back.innerHTML = year+"-"+getM()+"-"+(myDate.getDate()+1)+" "+getH()+":"+getMin()
+                    }                 
+                }
+
+            }
+            //小月情况
+            else
+            {
+                //判断出发时间的日期是否为月末，若是；则返校月+1；日期为01
+                if(getD()==30)
+                {
+                    //判断返校月份是否为单数，若为单数补0
+                    if(myDate.getMonth()+2<10)
+                    {
+                        var time_back = document.getElementById("time_back");
+                        time_back.innerHTML = year+"-"+"0"+(myDate.getMonth()+2)+"-"+"01"+" "+getH()+":"+getMin()
+                    }
+                    //双数则正常输出
+                    else
+                    {
+                        var time_back = document.getElementById("time_back");
+                        time_back.innerHTML = year+"-"+(myDate.getMonth()+2)+"-"+"01"+" "+getH()+":"+getMin() 
+                    }
+                    
+                }
+                //不是月末则返校月不增加，进入日期判断
+                else
+                {
+                    //判断日期是否为单数 若为单数则补0，反之则直接输出
+                    if(myDate.getDate()+1<10)
+                    {
+                        var time_back = document.getElementById("time_back");
+                        time_back.innerHTML = year+"-"+getM()+"-"+"0"+(myDate.getDate()+1)+" "+getH()+":"+getMin()
+                    }
+                    //双数直接输出
+                    else
+                    {
+                        var time_back = document.getElementById("time_back");
+                        time_back.innerHTML = year+"-"+getM()+"-"+(myDate.getDate()+1)+" "+getH()+":"+getMin()
+                    }                 
+                }
+
+            }
+            
+            // var time_back = document.getElementById("time_back");
+            // time_back.innerHTML = year+"-"+getM()+"-"+(getD()+1)+" "+getH()+":"+getMin()
+
+            //获取now现在时刻
+            var Now = document.getElementById("now");
+            Now.innerHTML = year+"-"+getM()+"-"+(getD())+" "
+            //为btn绑定单机响应函数
+            //点击实现参数的传递
+
+            var btn = document.getElementById("btn")
+            btn.onclick=function(){
+                //点击时获取inputValue
+                var inputValue1 = document.getElementById("input_1").value;
+                var inputValue2 = document.getElementById("input_2").value;
+                var inputValue3 = document.getElementById("input_3").value;
+                if(confirm("你确定要出校吗？")==true)
+                {
+                    window.location.replace("Othersblue.html"+"?itemId="+inputValue1+"&itemId2="+inputValue2+"&itemId3="+inputValue3);
+                }
+
+}
+</script>
+</body>
+</html>
