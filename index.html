@@ -65,11 +65,8 @@
         $("#btn").on({
             "click":function(){
                 //动画播放
-                $("#btn img").addClass("btn")
-                //2秒后跳转
-                setTimeout(function(){
-                    window.open("main.html")
-                },5000)
+                
+                window.open("main.html")
             }
         })
         function playMusic(){
@@ -85,7 +82,7 @@
         setTimeout(function(){
          $("span").fadeIn()
         },1500)
-        
+        $("#btn img").addClass("btn")
         function btnEditEmail_onclick() {  
         document.getElementById("emailid").value=id;//初始隐藏域  
         document.getElementById("EmailForm").submit();//提交  
