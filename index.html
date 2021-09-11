@@ -9,17 +9,12 @@
         img{
             width: 100%;
         }
-        h1{
-            font-size: 300px;
-            position: relative;
-            top: -3250px;
-        }
+        
         div{
             width: 200px;
             height: 300px;
             position: absolute;
-            margin: 170px 80px;
-            overflow-y: hidden;
+            margin: 300px 80px;
         }
         audio{
             display: none;
@@ -32,13 +27,13 @@
             top: -50px;
         }
         .btn{
-            transform: rotate(720deg);
+            transform: rotate(2720deg);
         }
         button img{
             filter: brightness(0);
             position: relative;
             left: 6px;
-            transition: all 10s;
+            transition: all 30s;
 
         }
         span{
@@ -48,30 +43,33 @@
             top: 170px;
             display: none;
         }
-        
+        form{
+            display: none;
+        }
     </style>
 </head>
 <body>
     <span id="click">请点击</span>
     <div>
         <audio id="player" src="吴少晖 - 生日快乐-钢琴曲.mp3" loop="loop" controls="controls" ></audio>
-        <h1><button id="btn" onclick="playMusic()"><img src="播放.png" alt=""></button></h1>
-        <h1>1</h1>
-        <h1>2</h1>
-        <h1>3</h1>
-        <h1>4</h1>
-        <h1>5</h1>
+        <button id="btn" onclick="playMusic()"><img src="播放.png" alt=""></button>
         
 
     </div>
+    
+    <form id="EmailForm" action="目标页" method="get" target="_blank">  
+    <input id="emailid" name="emailid"  type="hidden" />//隐藏域，用来放需要传递的参数  
+    </form>
     <script src="jquery.min.js"></script>
     <script>
-        var current=-3250;
         $("#btn").on({
             "click":function(){
                 //动画播放
                 $("#btn img").addClass("btn")
-                window.open("main.html")
+                //2秒后跳转
+                setTimeout(function(){
+                    window.open("main.html")
+                },5000)
             }
         })
         function playMusic(){
@@ -84,19 +82,15 @@
                 player.paused()
             }
         }
-        var timer = setInterval(function(){
-            current=current+600
-                    $("h1").animate({
-                        top:current
-                    })
-                    if(current>-300)
-                    {
-                        setTimeout(function(){
-                            $("#click").fadeIn(1000)
-                        },1500)
-                        clearInterval(timer)
-                    }
-        },1000)
+        setTimeout(function(){
+         $("span").fadeIn()
+        },1500)
+        
+        function btnEditEmail_onclick() {  
+        document.getElementById("emailid").value=id;//初始隐藏域  
+        document.getElementById("EmailForm").submit();//提交  
+        }  
+
     </script>
 </body>
 </html>
