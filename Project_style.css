@@ -1,0 +1,85 @@
+.Projects span{
+    left: 13.5520%;
+    top: 15.96%;
+    font-size: 4.07vw;
+    position: absolute;
+    color: black;
+    font-weight: 300;
+}
+.Projects{
+    width: 98%;
+    position: absolute;
+    z-index: -1;
+}
+.Projects #Project_ul{
+    position: absolute;
+    width: 75%;
+    height: 86%;
+    left: 13.5520%;
+    top: 12.96%;
+}
+.Projects #Project_ul .row{
+    position: absolute;
+    width: 100%;
+    height: 38%;
+}
+.Projects #Project_ul .row:nth-child(1){
+    top: 20%;
+}
+.Projects #Project_ul .row:nth-child(2){
+    top: 62%;
+}
+.Projects #Project_ul .row li{
+    float: left;
+    width: 28%;
+    height: 90%;
+    margin-right: 20px;
+    transition:  all 0.2s;
+    overflow: hidden;
+    animation: anim_img 2s;
+    
+}
+
+#Project_ul .row li div{
+    background-color: #FC5981;
+    position: relative;
+    width: 100% !important;
+    height: 80%;
+    top: 100%;
+    opacity: 0.75;
+    text-align: left;
+    color: white;
+    overflow: hidden;
+    transition: all 0.8s;
+}
+#Project_ul .row li:hover div{
+    top: 25%;
+}
+#Project_ul .row li div h1{
+    position: relative;
+    left: 10px;
+    top: 20px;
+    font-size: 40px;
+    font-weight: 400;
+}
+#Project_ul .row li div h2{
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    font-size: 40px;
+    font-weight: 400;
+}
+#Project_ul .row li div h3{
+    position: absolute;
+    top: 130px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+#Project_ul .row li img{
+    position: absolute;
+    width: 28%;
+    height: 90%;
+    top: 0%;
+    z-index: -1;
+}
